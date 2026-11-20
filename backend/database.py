@@ -4,10 +4,12 @@ import sqlite3
 import time
 from typing import Any, Dict, List, Optional
 
-DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "citeverify.db")
+DATA_DIR = os.environ.get("CITEVERIFY_DATA_DIR", os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(DATA_DIR, "citeverify.db")
 
 
 def get_db():
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
