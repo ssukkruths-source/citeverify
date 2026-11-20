@@ -1,0 +1,26 @@
+# Local environment files and credentials
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+
+# Local databases, user uploads, audit PDFs, and logs
+backend/*.db
+backend/uploads/
+backend/reports/
+backend/pages_dump.txt
+backend_server.log
+backend_server.pid
+runlogs/
+
+# Model weights and cached datasets
+backend/models/
+backend/data/scifact/
+backend/data/scifact-data.tar.gz
+
+# Generated and local development files
+frontend/node_modules/
+frontend/dist/
+**/__pycache__/
+*.py[cod]
+.freebuff/
